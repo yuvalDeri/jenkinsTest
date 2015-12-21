@@ -4,7 +4,7 @@ version       := "0.5"
 
 scalaVersion  := "2.11.7"
 
-resolvers += Artifactory" at "http://localhost:8081/artifactory/libs-snapshot-local/" 
+resolvers += "Artifactory" at "http://localhost:8081/artifactory/libs-snapshot-local/" 
 //"Scalaz Bintray Repo" at "http://dl.bintray.com/scalaz/releases"
 
 libraryDependencies ++= {
