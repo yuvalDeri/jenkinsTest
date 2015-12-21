@@ -4,7 +4,8 @@ version       := "0.5"
 
 scalaVersion  := "2.11.7"
 
-resolvers += "Scalaz Bintray Repo" at "http://dl.bintray.com/scalaz/releases"
+resolvers += Artifactory" at "http://localhost:8081/artifactory/libs-snapshot-local/" 
+//"Scalaz Bintray Repo" at "http://dl.bintray.com/scalaz/releases"
 
 libraryDependencies ++= {
   val akkaV  = "2.3.10"
@@ -44,8 +45,6 @@ javacOptions ++= Seq("-Xlint:deprecation", "-Xlint:unchecked", "-source", "1.8",
 
 doc in Compile <<= target.map(_ / "none")
 
-publishArtifact in (Compile, packageSrc) := false
-
 logBuffered in Test := false
 
 Keys.fork in Test := false
@@ -63,3 +62,6 @@ fork in run := true
 javaOptions <++= AspectjKeys.weaverOptions in Aspectj
 
 enablePlugins(JavaServerAppPackaging)
+
+publishTo := Some("Artifactory Realm" at "http://localhost:8081/artifactory/libs-snapshot-local;build.timestamp=" + new java.util.Date().getTime)
+credentials += Credentials("Artifactory Realm", "localhost", "jenkinsci", "lalala")
