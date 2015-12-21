@@ -1,6 +1,6 @@
 organization  := "cua.li"
 
-version       := "0.5"
+version       := "0.5-SNAPSHOT"
 
 scalaVersion  := "2.11.7"
 
