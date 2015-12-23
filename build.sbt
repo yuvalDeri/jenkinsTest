@@ -10,8 +10,7 @@ packageSummary := "Hello World Debian Package"
 packageDescription := """A fun package description of our software,
   with multiple lines."""
 
-
-resolvers += "Artifactory" at "http://localhost:8081/artifactory/libs-snapshot-local/"
+resolvers += "Artifactory" at "http://192.168.99.100:8081/artifactory/libs-snapshot-local/"
 resolvers += "Scalaz Bintray Repo" at "http://dl.bintray.com/scalaz/releases"
 
 libraryDependencies ++= {
@@ -71,5 +70,5 @@ javaOptions <++= AspectjKeys.weaverOptions in Aspectj
 enablePlugins(JavaServerAppPackaging)
 enablePlugins(DebianPlugin)
 
-publishTo := Some("Artifactory Realm" at "http://localhost:8081/artifactory/libs-snapshot-local;build.timestamp=" + new java.util.Date().getTime)
+publishTo := Some("Artifactory Realm" at "http://192.168.99.100:8081/artifactory/libs-snapshot-local;build.timestamp=" + new java.util.Date().getTime)
 credentials += Credentials("Artifactory Realm", "localhost", "jenkinsci", "lalala")
